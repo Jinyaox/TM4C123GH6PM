@@ -1,0 +1,15 @@
+"C:\arm\bin\armPROC.dll" 
+
+"C:\arm\bin\armLMIFTDI.dll" 
+
+"C:\Users\m1856\Desktop\Embedded_C\uart\Debug\Exe\UART.out" 
+
+--plugin="C:\arm\bin\armbat.dll" 
+
+--device_macro="C:\arm/config/debugger/TexasInstruments/TM4C123.dmac" 
+
+--flash_loader="C:\arm/config/flashloader/TexasInstruments/FlashTC4_H6_o.board" 
+
+
+
+
