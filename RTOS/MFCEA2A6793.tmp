@@ -1,0 +1,30 @@
+#include "tm4c123gh6pm.h"
+#include "delay.h"
+#include <stdint.h>
+
+int main()
+{
+  //use HIGH PERFORMANCE BUS ENABLE (AHB) and turn GPIOF ON
+  
+  SYSCTL_RCGCGPIO_R|=(1U<<5);
+  SYSCTL_GPIOHBCTL_R|=(1U<<5);
+  GPIO_PORTF_AHB_DIR_R |=0x0eU;
+  GPIO_PORTF_AHB_DEN_R |=0x0eU; //also can be written to (LED_RED|LED_BLUE|LED_GREEN) which is e (1110)
+  
+  
+  //this will initlize the system tick handler!!!!
+  //NVIC_ST_CTRL_R|=(1U<<2)|(1U<<1)|(1U);
+  //NVIC_ST_RELOAD_R|=16000000U/2U-1;
+  //NVIC_ST_CURRENT_R|=0U;
+  
+  //NVIC_EN0_R|=1U; //enable the interrupt!!
+  
+ 
+ while(1){
+   //NVIC_ST_CTRL_R|=0U;
+   //the LED main toggle is now moved to the systick interrupt handler now!!!
+   //GPIO_PORTF_AHB_DATA_R|=(1U<<3);
+   //GPIO_PORTF_AHB_DATA_R&=~(1U<<3);
+  }
+  return 0;
+}
