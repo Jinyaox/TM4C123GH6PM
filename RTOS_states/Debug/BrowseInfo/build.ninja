@@ -1,0 +1,61 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = "C$:\Programming\IAR$ WorkBench\common\bin\XclFileGenerator.exe" $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"C$:\Programming\IAR$ WorkBench\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = "C$:\Programming\IAR$ WorkBench\common\bin\SourceIndexer.exe" $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"C$:\Programming\IAR$ WorkBench\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = "C$:\Programming\IAR$ WorkBench\common\bin\makeBrowseData.exe" $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"C$:\Programming\IAR$ WorkBench\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = "C$:\Programming\IAR$ WorkBench\common\bin\PbdLink.exe" $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"C$:\Programming\IAR$ WorkBench\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\bsp.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\bsp.c -xcl_file C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\bsp.xcl -macro_file C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\bsp.tmp -icc_path "C$:\Programming\IAR$ WorkBench\arm\bin\iccarm.exe"
+  flags = C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\bsp.c -o C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 --disable_inline_asm_label_replacement -e --fpu=None --dlib_config "C$:\Programming\IAR$ WorkBench\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\bsp.tmp
+  rspfile_name = C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\bsp.xcl.rsp
+
+build C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\main.c -xcl_file C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\main.xcl -macro_file C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\main.tmp -icc_path "C$:\Programming\IAR$ WorkBench\arm\bin\iccarm.exe"
+  flags = C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\main.c -o C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 --disable_inline_asm_label_replacement -e --fpu=None --dlib_config "C$:\Programming\IAR$ WorkBench\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\main.tmp
+  rspfile_name = C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\main.xcl.rsp
+
+build C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\Miros.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Miros.c -xcl_file C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\Miros.xcl -macro_file C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\Miros.tmp -icc_path "C$:\Programming\IAR$ WorkBench\arm\bin\iccarm.exe"
+  flags = C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Miros.c -o C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 --disable_inline_asm_label_replacement -e --fpu=None --dlib_config "C$:\Programming\IAR$ WorkBench\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\Miros.tmp
+  rspfile_name = C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\Miros.xcl.rsp
+
+build C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\bsp.pbi : INDEXER C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\bsp.xcl |  $
+C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\bsp.c
+  flags = -out=C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\bsp.pbi -f C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\bsp.xcl
+
+build C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\main.pbi : INDEXER C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\main.xcl |  $
+C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\main.c
+  flags = -out=C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\main.pbi -f C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\main.xcl
+
+build C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\Miros.pbi : INDEXER C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\Miros.xcl |  $
+C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Miros.c
+  flags = -out=C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\Miros.pbi -f C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\Miros.xcl
+
+build C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\work2.pbw : MAKEBROWSE C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\work2.pbd
+  flags = C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\work2.pbd -output C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\work2.pbw
+
+build C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\work2.pbd : PDBLINK C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\bsp.pbi |  $
+C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\main.pbi $
+C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\Miros.pbi
+  flags = -M C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\work2.pbd C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\bsp.pbi C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\main.pbi C$:\Users\LiJia\OneDrive\桌面\Embedded_C\RTOS_states\Debug\BrowseInfo\Miros.pbi
+

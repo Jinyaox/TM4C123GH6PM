@@ -1,0 +1,240 @@
+###############################################################################
+#
+# IAR ELF Linker V9.30.1.335/W64 for ARM                  06/Nov/2022  05:36:41
+# Copyright 2007-2022 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\LiJia\OneDrive\@@\Embedded_C\RTOS_states\Debug\Exe\work2.out
+#    Map file     =
+#        C:\Users\LiJia\OneDrive\@@\Embedded_C\RTOS_states\Debug\List\work2.map
+#    Command line =
+#        -f
+#        C:\Users\LiJia\OneDrive\@@\Embedded_C\RTOS_states\Debug\Exe\work2.out.rsp
+#        (C:\Users\LiJia\OneDrive\@@\Embedded_C\RTOS_states\Debug\Obj\bsp.o
+#        C:\Users\LiJia\OneDrive\@@\Embedded_C\RTOS_states\Debug\Obj\main.o
+#        C:\Users\LiJia\OneDrive\@@\Embedded_C\RTOS_states\Debug\Obj\Miros.o
+#        --no_out_extension -o
+#        C:\Users\LiJia\OneDrive\@@\Embedded_C\RTOS_states\Debug\Exe\work2.out
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map
+#        C:\Users\LiJia\OneDrive\@@\Embedded_C\RTOS_states\Debug\List\work2.map
+#        --config "C:\Programming\IAR
+#        WorkBench\arm/config/linker/TexasInstruments/TM4C123GH6.icf"
+#        --semihosting --entry __iar_program_start --vfe --text_out locale
+#        --cpu=Cortex-M4 --fpu=None)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because --advanced_heap
+was not specified and the application did not appear to
+be primarily optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+
+  Section          Kind         Address    Size  Object
+  -------          ----         -------    ----  ------
+"A0":                                      0x40
+  .intvec          ro code          0x0    0x40  vector_table_M.o [3]
+                                 - 0x40    0x40
+
+"P1":                                     0x3fc
+  .text            ro code         0x40   0x1dc  Miros.o [1]
+  .text            ro code        0x21c    0xd8  bsp.o [1]
+  .text            ro code        0x2f4    0x74  main.o [1]
+  .text            ro code        0x368    0x38  zero_init3.o [3]
+  .text            ro code        0x3a0    0x28  data_init.o [3]
+  .iar.init_table  const          0x3c8    0x10  - Linker created -
+  .text            ro code        0x3d8    0x1e  cmain.o [3]
+  .text            ro code        0x3f6     0x4  low_level_init.o [2]
+  .text            ro code        0x3fa     0x4  exit.o [2]
+  .text            ro code        0x3fe     0x2  vectortrap_M.o [3]
+  .text            ro code        0x400     0xa  cexit.o [3]
+  .text            ro code        0x40c    0x14  exit.o [4]
+  .text            ro code        0x420    0x1c  cstartup_M.o [3]
+  .rodata          const          0x43c     0x0  zero_init3.o [3]
+                                - 0x43c   0x3fc
+
+"P2", part 1 of 2:                        0x28c
+  .bss             zero     0x2000'0000    0xa0  main.o [1]
+  .bss             zero     0x2000'00a0    0xa0  main.o [1]
+  .bss             zero     0x2000'0140    0xa0  main.o [1]
+  .bss             zero     0x2000'01e0    0x84  Miros.o [1]
+  .bss             zero     0x2000'0264     0x8  main.o [1]
+  .bss             zero     0x2000'026c     0x8  main.o [1]
+  .bss             zero     0x2000'0274     0x8  Miros.o [1]
+  .bss             zero     0x2000'027c     0x4  Miros.o [1]
+  .bss             zero     0x2000'0280     0x4  Miros.o [1]
+  .bss             zero     0x2000'0284     0x4  Miros.o [1]
+  .bss             zero     0x2000'0288     0x1  Miros.o [1]
+  .bss             zero     0x2000'0289     0x1  Miros.o [1]
+                          - 0x2000'028a   0x28a
+
+"P2", part 2 of 2:                       0x1000
+  CSTACK                    0x2000'0290  0x1000  <Block>
+    CSTACK         uninit   0x2000'0290  0x1000  <Block tail>
+                          - 0x2000'1290  0x1000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x43c     0x3'ffff  0x3'fbc4
+  0x2000'028c  0x2000'028f       0x4
+  0x2000'1290  0x2000'7fff    0x6d70
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x28a:
+          0x2000'0000  0x28a
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+command line/config:
+    -------------------------------------------
+    Total:
+
+C:\Users\LiJia\OneDrive\@@\Embedded_C\RTOS_states\Debug\Obj: [1]
+    Miros.o               476               154
+    bsp.o                 216
+    main.o                116               496
+    -------------------------------------------
+    Total:                808               650
+
+dl7M_tln.a: [2]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+rt7M_tl.a: [3]
+    cexit.o                10
+    cmain.o                30
+    cstartup_M.o           28
+    data_init.o            40
+    vector_table_M.o       64
+    vectortrap_M.o          2
+    zero_init3.o           56
+    -------------------------------------------
+    Total:                230
+
+shb_l.a: [4]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                    2
+    Linker created                  16    4'096
+-----------------------------------------------
+    Grand Total:        1'068       16    4'746
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address  Size  Type      Object
+-----                       -------  ----  ----      ------
+.iar.init_table$$Base         0x3c8         --   Gb  - Linker created -
+.iar.init_table$$Limit        0x3d8         --   Gb  - Linker created -
+?main                         0x3d9        Code  Gb  cmain.o [3]
+BusFault_Handler              0x3ff        Code  Wk  vectortrap_M.o [3]
+CSTACK$$Base            0x2000'0290         --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'1290         --   Gb  - Linker created -
+DebugMon_Handler              0x3ff        Code  Wk  vectortrap_M.o [3]
+HardFault_Handler             0x3ff        Code  Wk  vectortrap_M.o [3]
+LED_BLUE_OFF                  0x241   0xc  Code  Gb  bsp.o [1]
+LED_BLUE_ON                   0x235   0xc  Code  Gb  bsp.o [1]
+LED_GREEN_OFF                 0x229   0xc  Code  Gb  bsp.o [1]
+LED_GREEN_ON                  0x21d   0xc  Code  Gb  bsp.o [1]
+MemManage_Handler             0x3ff        Code  Wk  vectortrap_M.o [3]
+NMI_Handler                   0x3ff        Code  Wk  vectortrap_M.o [3]
+OS_Current              0x2000'027c   0x4  Data  Gb  Miros.o [1]
+OS_Next                 0x2000'0280   0x4  Data  Gb  Miros.o [1]
+OS_Sched                       0xbd  0x54  Code  Gb  Miros.o [1]
+OS_curridx              0x2000'0289   0x1  Data  Gb  Miros.o [1]
+OS_init                        0x47  0x1a  Code  Gb  Miros.o [1]
+OS_onIdle                      0x61   0x2  Code  Gb  Miros.o [1]
+OS_onStartup                  0x269  0x30  Code  Gb  bsp.o [1]
+OS_readyset             0x2000'0284   0x4  Data  Gb  Miros.o [1]
+OS_run                        0x1a5  0x10  Code  Gb  Miros.o [1]
+OS_thread               0x2000'01e0  0x84  Data  Gb  Miros.o [1]
+OS_threadnum            0x2000'0288   0x1  Data  Gb  Miros.o [1]
+OS_tick                        0x63  0x5a  Code  Gb  Miros.o [1]
+OSthread_start                0x111  0x94  Code  Gb  Miros.o [1]
+PendSV_Handler                0x1c5  0x2e  Code  Gb  Miros.o [1]
+Region$$Table$$Base           0x3c8         --   Gb  - Linker created -
+Region$$Table$$Limit          0x3d8         --   Gb  - Linker created -
+SVC_Handler                   0x3ff        Code  Wk  vectortrap_M.o [3]
+SysTick_Handler               0x1b5  0x10  Code  Gb  Miros.o [1]
+UsageFault_Handler            0x3ff        Code  Wk  vectortrap_M.o [3]
+__cmain                       0x3d9        Code  Gb  cmain.o [3]
+__exit                        0x40d  0x14  Code  Gb  exit.o [4]
+__iar_data_init3              0x3a1  0x28  Code  Gb  data_init.o [3]
+__iar_program_start           0x421        Code  Gb  cstartup_M.o [3]
+__iar_zero_init3              0x369  0x38  Code  Gb  zero_init3.o [3]
+__low_level_init              0x3f7   0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0        Data  Gb  vector_table_M.o [3]
+_call_main                    0x3e5        Code  Gb  cmain.o [3]
+_exit                         0x401        Code  Gb  cexit.o [3]
+delay                         0x299  0x28  Code  Gb  bsp.o [1]
+exit                          0x3fb   0x4  Code  Gb  exit.o [2]
+idle                           0x41   0x6  Code  Gb  Miros.o [1]
+idle_thread             0x2000'0274   0x8  Data  Gb  Miros.o [1]
+main                          0x321  0x2a  Code  Gb  main.o [1]
+main1                         0x2f5  0x16  Code  Gb  main.o [1]
+main2                         0x30b  0x16  Code  Gb  main.o [1]
+sp_main1                0x2000'0264   0x8  Data  Gb  main.o [1]
+sp_main2                0x2000'026c   0x8  Data  Gb  main.o [1]
+stack_idle              0x2000'0140  0xa0  Data  Gb  main.o [1]
+stack_main1             0x2000'0000  0xa0  Data  Gb  main.o [1]
+stack_main2             0x2000'00a0  0xa0  Data  Gb  main.o [1]
+systick_init                  0x24d  0x1c  Code  Gb  bsp.o [1]
+
+
+[1] = C:\Users\LiJia\OneDrive\@@\Embedded_C\RTOS_states\Debug\Obj
+[2] = dl7M_tln.a
+[3] = rt7M_tl.a
+[4] = shb_l.a
+
+  1'068 bytes of readonly  code memory
+     16 bytes of readonly  data memory
+  4'746 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
