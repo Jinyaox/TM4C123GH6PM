@@ -1,0 +1,200 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.7                     
+******************************************************************************
+>> Linked Fri Nov 18 05:05:56 2022
+
+OUTPUT FILE NAME:   <test.out>
+ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 00000c15
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00000d5c  0003f2a4  R  X
+  SRAM                  20000000   00008000  00000200  00007e00  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000d5c   00000d5c    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    000009f0   000009f0    r-x .text
+  00000c5c    00000c5c    00000100   00000100    r-- .const
+20000000    20000000    00000200   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    000009f0     
+                  0000026c    0000055c     sha256.obj (.text)
+                  000007c8    00000108     bsp.obj (.text)
+                  000008d0    000000c0     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00000990    000000b8     main.obj (.text)
+                  00000a48    000000b4     utils.obj (.text)
+                  00000afc    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00000b98    0000007a                                   : memset_t2.asm.obj (.text)
+                  00000c12    00000002     --HOLE-- [fill = 0]
+                  00000c14    0000002c                                   : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
+                  00000c40    00000014                                   : strlen.c.obj (.text:strlen)
+                  00000c54    00000004                                   : pre_init.c.obj (.text:_system_pre_init)
+                  00000c58    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00000c5c    00000100     
+                  00000c5c    00000100     sha256.obj (.const:k256)
+
+.cinit     0    00000000    00000000     UNINITIALIZED
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       sha256.obj                     1372   256       0      
+       tm4c123gh6pm_startup_ccs.obj   192    620       0      
+       bsp.obj                        264    0         0      
+       main.obj                       184    0         0      
+       utils.obj                      180    0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         2192   876       0      
+                                                              
+    C:\ccs\tools\compiler\ti-cgt-arm_20.2.7.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj              156    0         0      
+       memset_t2.asm.obj              122    0         0      
+       boot_cortex_m.c.obj            44     0         0      
+       strlen.c.obj                   20     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         350    0         0      
+                                                              
+       Stack:                         0      0         512    
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   2542   876       512    
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                   
+-------   ----                   
+00000c59  C$$EXIT                
+000007c9  GPIOA_SETUP            
+00000919  GPIOF_Handler          
+000008d1  ResetISR               
+0000085d  UART_RX                
+000007f9  UART_SETUP             
+00000841  UART_TX                
+20000200  __STACK_END            
+00000200  __STACK_SIZE           
+20000200  __STACK_TOP            
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+00000000  __TI_static_base__     
+00000b99  __aeabi_memclr         
+00000b99  __aeabi_memclr4        
+00000b99  __aeabi_memclr8        
+00000afd  __aeabi_memcpy         
+00000afd  __aeabi_memcpy4        
+00000afd  __aeabi_memcpy8        
+00000b9b  __aeabi_memset         
+00000b9b  __aeabi_memset4        
+00000b9b  __aeabi_memset8        
+ffffffff  __binit__              
+ffffffff  __c_args__             
+UNDEFED   __mpu_init             
+20000000  __stack                
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+00000c15  _c_int00_noinit_noargs 
+00000aab  _compare               
+00000a49  _copy                  
+00000a8b  _double_byte           
+00000a73  _set                   
+00000c55  _system_pre_init       
+00000c59  abort                  
+ffffffff  binit                  
+000008dd  encrypt                
+00000000  g_pfnVectors           
+00000991  main                   
+00000afd  memcpy                 
+00000ba1  memset                 
+00000879  print_str              
+00000c41  strlen                 
+000003a3  tc_sha256_final        
+000002d9  tc_sha256_init         
+00000323  tc_sha256_update       
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                   
+-------   ----                   
+00000000  __TI_static_base__     
+00000000  g_pfnVectors           
+00000200  __STACK_SIZE           
+000002d9  tc_sha256_init         
+00000323  tc_sha256_update       
+000003a3  tc_sha256_final        
+000007c9  GPIOA_SETUP            
+000007f9  UART_SETUP             
+00000841  UART_TX                
+0000085d  UART_RX                
+00000879  print_str              
+000008d1  ResetISR               
+000008dd  encrypt                
+00000919  GPIOF_Handler          
+00000991  main                   
+00000a49  _copy                  
+00000a73  _set                   
+00000a8b  _double_byte           
+00000aab  _compare               
+00000afd  __aeabi_memcpy         
+00000afd  __aeabi_memcpy4        
+00000afd  __aeabi_memcpy8        
+00000afd  memcpy                 
+00000b99  __aeabi_memclr         
+00000b99  __aeabi_memclr4        
+00000b99  __aeabi_memclr8        
+00000b9b  __aeabi_memset         
+00000b9b  __aeabi_memset4        
+00000b9b  __aeabi_memset8        
+00000ba1  memset                 
+00000c15  _c_int00_noinit_noargs 
+00000c41  strlen                 
+00000c55  _system_pre_init       
+00000c59  C$$EXIT                
+00000c59  abort                  
+20000000  __stack                
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+20000200  __STACK_END            
+20000200  __STACK_TOP            
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+ffffffff  __binit__              
+ffffffff  __c_args__             
+ffffffff  binit                  
+UNDEFED   __mpu_init             
+
+[47 symbols]
