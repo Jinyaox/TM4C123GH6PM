@@ -1,0 +1,9 @@
+"./bsp.obj"
+"./main.obj"
+"./random.obj"
+"./sha256.obj"
+"./tm4c123gh6pm_startup_ccs.obj"
+"./ustdlib.obj"
+"./utils.obj"
+"../tm4c123gh6pm.cmd"
+-llibc.a
